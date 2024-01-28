@@ -15,7 +15,6 @@ internal class Exercicio03
     public Exercicio03(int numJogadores)
     {
         InicializarJogadores(numJogadores);
-        InicializarPassesAteExplodir();
     }
 
     private void InicializarJogadores(int numJogadores)
@@ -38,6 +37,8 @@ internal class Exercicio03
 
         while (jogadores.Count > 1)
         {
+            // Cada rodada pode ter um número de passes diferentes, assim aumenta o suspense do jogo xP
+            InicializarPassesAteExplodir();
             RealizarRodada();
         }
 
@@ -53,7 +54,7 @@ internal class Exercicio03
             jogadores.Enqueue(jogadorAtual);
 
             Console.WriteLine($"Jogador {jogadorAtual} passa a batata para o próximo...");
-            Thread.Sleep(500);
+            Thread.Sleep(100);
         }
 
         int jogadorEliminado = jogadores.Dequeue();
